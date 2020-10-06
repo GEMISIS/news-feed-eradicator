@@ -6,7 +6,7 @@ BIN=$(shell yarn bin)
 
 build: install copy-assets
 	mkdir -p build
-	NODE_ENV=production ./node_modules/.bin/rollup -c
+	NODE_ENV=production ./node_modules/rollup/dist/bin/rollup -c
 	mkdir -p dist
 	(cd build && zip -r ../dist/NewsFeedEradicator_$(GITTAG).zip .)
 
@@ -34,7 +34,7 @@ copy-assets:
 
 dev: install copy-assets
 	mkdir -p build
-	./node_modules/.bin/rollup -c --watch
+	./node_modules/rollup/dist/bin/rollup -c --watch
 
 install:
 	npm install
